@@ -1,0 +1,158 @@
+import { StyleSheet } from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    marginTop: 20,
+    marginBottom: 30,
+  },
+  headerSubtitle: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#64748B',
+    letterSpacing: 0.8,
+    textTransform: 'uppercase',
+    paddingHorizontal: 20,
+    marginBottom: 4,
+  },
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    marginBottom: 14,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#0F172A',
+  },
+  seeAll: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#2563EB',
+  },
+  scrollContent: {
+    paddingHorizontal: 16,
+    gap: 14,
+  },
+  card: {
+    width: 270,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    padding: 18,
+    borderWidth: 1,
+    borderColor: '#F1F5F9',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.04,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  topRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  timeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  timeIcon: {
+    fontSize: 14,
+    color: '#334155',
+  },
+  timeText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#0F172A',
+  },
+  statusBadge: {
+    backgroundColor: '#DCFCE7',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  statusBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#15803D',
+    letterSpacing: 0.5,
+  },
+  routeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  stationItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  ringBlue: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    borderWidth: 2.5,
+    borderColor: '#2563EB',
+    backgroundColor: '#FFFFFF',
+  },
+  ringGreen: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    borderWidth: 2.5,
+    borderColor: '#059669',
+    backgroundColor: '#FFFFFF',
+  },
+  stationName: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#0F172A',
+  },
+  dashedLine: {
+    flex: 1,
+    borderBottomWidth: 1.5,
+    borderBottomColor: '#CBD5E1',
+    borderStyle: 'dashed',
+    marginHorizontal: 8,
+  },
+  metaRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  busInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  busIcon: {
+    fontSize: 14,
+    color: '#64748B',
+  },
+  busText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#64748B',
+  },
+  seatsLeftText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#0D9488',
+  },
+  detailsButton: {
+    backgroundColor: '#EFF6FF',
+    borderRadius: 12,
+    paddingVertical: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  detailsButtonText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#2563EB',
+  },
+});
