@@ -1,44 +1,39 @@
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView, StatusBar, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView,
+  StatusBar,
+  Image,
+} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Feather from 'react-native-vector-icons/Feather';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { styles } from './LoginScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenNames } from '../../navigation/ScreenNames';
-import { AuthStackType } from '../../navigation/RootStack';
 
 export default function LoginScreen() {
-  const navigation = useNavigation();
-  
+  const navigation = useNavigation() as any;
 
   return (
     <View style={styles.container}>
-      <StatusBar
-        barStyle="light-content"
-        {...(Platform.OS === 'android' ? { backgroundColor: '#071E3D' } : {})}
-      />
+      <StatusBar barStyle="light-content" />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        <View style={styles.topSection}>
+        <View style={styles.headerBannerContainer}>
+          <Image
+            source={require('../../assets/images/login_header.jpg')}
+            style={styles.headerBannerImage}
+            resizeMode="cover"
+          />
+          <View style={styles.headerOverlay} />
+
           <View style={styles.appHeader}>
             <View style={styles.appIconBadge}>
               <MaterialCommunityIcons name="bus" size={22} color="#071E3D" />
             </View>
             <Text style={styles.appTitle}>Company Bus</Text>
-          </View>
-
-          <View style={styles.illustration}>
-            <View style={styles.road} />
-
-            <View style={styles.bus}>
-              <MaterialCommunityIcons name="bus" size={42} color="#FFFFFF" />
-            </View>
-
-            <View style={styles.stop}>
-              <View style={styles.stopIcon}>
-                <Ionicons name="location-outline" size={19} color="#2563EB" />
-              </View>
-            </View>
           </View>
         </View>
 
