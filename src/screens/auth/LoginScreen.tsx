@@ -12,10 +12,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Feather from 'react-native-vector-icons/Feather';
 import { styles } from './LoginScreen.styles';
 import { useNavigation } from '@react-navigation/native';
-import { ScreenNames } from '../../navigation/ScreenNames';
-import { MainStackType, RootStackType } from '../../navigation/RootStack';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-type NavProps = NativeStackNavigationProp<RootStackType>;
+import { RootStackType } from '../../navigation/RootStack';
+import { StackNavigationProp } from '@react-navigation/stack';
+type NavProps = StackNavigationProp<RootStackType>;
 export default function LoginScreen() {
   const navigation = useNavigation<NavProps>();
 
@@ -101,7 +100,10 @@ export default function LoginScreen() {
             activeOpacity={0.85}
             onPress={() =>
               navigation.navigate('MainStack', {
-                screen: 'HomeScreen',
+                screen: 'BottomTabs',
+                params: {
+                  screen: 'HomeScreen',
+                },
               })
             }
           >

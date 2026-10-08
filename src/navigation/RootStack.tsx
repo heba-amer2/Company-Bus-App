@@ -32,8 +32,7 @@ export type AuthStackType = {
   LoginScreen: undefined;
 };
 export type MainStackType = {
-  BottomTabs: BottomTabsType;
-  HomeScreen: undefined;
+  BottomTabs: NavigatorScreenParams<BottomTabsType>;
   ReservationDetailsScreen: undefined;
   TripDetailsScreen: undefined;
 };

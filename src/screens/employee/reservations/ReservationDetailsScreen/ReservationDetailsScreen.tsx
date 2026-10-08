@@ -2,16 +2,20 @@ import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './ReservationDetailsScreen.styles';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { MainStackType } from '../../../../navigation/RootStack';
-type NavProps = NativeStackNavigationProp<MainStackType>;
+import { StackNavigationProp } from '@react-navigation/stack';
+type NavProps = StackNavigationProp<MainStackType>;
 export default function ReservationDetailsScreen() {
   const navigation = useNavigation<NavProps>();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('HomeScreen')}
+          onPress={() =>
+            navigation.navigate('BottomTabs', {
+              screen: 'HomeScreen',
+            })
+          }
           style={styles.backButton}
           activeOpacity={0.7}
         >
