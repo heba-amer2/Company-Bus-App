@@ -1,19 +1,32 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import { styles } from './ReservationDetailsScreen.styles';
-
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { MainStackType } from '../../../../navigation/RootStack';
+type NavProps = NativeStackNavigationProp<MainStackType>;
 export default function ReservationDetailsScreen() {
+  const navigation = useNavigation<NavProps>();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} activeOpacity={0.7}>
-          <Text style={{ fontSize: 16, color: '#0F172A', fontWeight: 'bold' }}>‹</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('HomeScreen')}
+          style={styles.backButton}
+          activeOpacity={0.7}
+        >
+          <Text style={{ fontSize: 16, color: '#0F172A', fontWeight: 'bold' }}>
+            ‹
+          </Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Reservation Details</Text>
         <View style={styles.headerRightPlaceholder} />
       </View>
 
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.statusCard}>
           <View style={styles.badge}>
             <Text style={styles.badgeText}>CONFIRMED</Text>
