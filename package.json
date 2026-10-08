@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@react-native-masked-view/masked-view": "^0.3.2",
+    "@react-native/gradle-plugin": "0.87.1",
     "@react-native/new-app-screen": "0.87.1",
     "@react-navigation/bottom-tabs": "^7.20.0",
-    "@react-navigation/native": "^7.5.0",
+    "@react-navigation/native": "7.5.0",
+    "@react-navigation/native-stack": "^7.20.0",
     "@react-navigation/stack": "^7.12.0",
     "react": "19.2.3",
     "react-icons": "^5.7.0",
@@ -34,7 +36,7 @@
     "@react-native/eslint-config": "0.87.1",
     "@react-native/jest-preset": "0.87.1",
     "@react-native/metro-config": "0.87.1",
-    "@react-native/typescript-config": "0.87.1",
+    "@react-native/typescript-config": "^0.87.1",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.2.0",
     "@types/react-test-renderer": "^19.1.0",
@@ -42,7 +44,7 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "19.2.3",
-    "typescript": "^6.0.3"
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">= 22.11.0"

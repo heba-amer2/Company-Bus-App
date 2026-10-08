@@ -13,14 +13,19 @@ import Feather from 'react-native-vector-icons/Feather';
 import { styles } from './LoginScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenNames } from '../../navigation/ScreenNames';
-
+import { MainStackType, RootStackType } from '../../navigation/RootStack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+type NavProps = NativeStackNavigationProp<RootStackType>;
 export default function LoginScreen() {
-  const navigation = useNavigation() as any;
+  const navigation = useNavigation<NavProps>();
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
-      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.headerBannerContainer}>
           <Image
             source={require('../../assets/images/login_header.jpg')}
@@ -94,13 +99,19 @@ export default function LoginScreen() {
           <TouchableOpacity
             style={styles.signInButton}
             activeOpacity={0.85}
-            onPress={() => navigation.navigate(ScreenNames.HomeScreen)}
+            onPress={() =>
+              navigation.navigate('MainStack', {
+                screen: 'HomeScreen',
+              })
+            }
           >
             <Text style={styles.signInButtonText}>Sign in</Text>
           </TouchableOpacity>
 
           <View style={styles.supportContainer}>
-            <Text style={styles.supportText}>Need help? Contact Transportation Support</Text>
+            <Text style={styles.supportText}>
+              Need help? Contact Transportation Support
+            </Text>
           </View>
         </View>
       </ScrollView>
