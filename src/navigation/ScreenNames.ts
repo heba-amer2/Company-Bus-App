@@ -1,10 +1,18 @@
-import TripsScreen from '../screens/employee/trips/TripsScreen';
-export enum ScreenNames {
-  HomeScreen = 'HomeScreen',
-  reservationsScreen = 'ReservationsScreen',
-  ReservationDetailsScreen='ReservationDetailsScreen',
-  TripsScreen='TripsScreen',
-  TripDetailsScreen='TripDetailsScreen',
-  trackingScreen='TrackingScreen',
-  ProfileScreen='ProfileScreen',
+
+export enum EmployeeScreenNames {
+  EmployeeHomeScreen = 'HomeScreen',
+  EmployeeReservationsScreen = 'ReservationsScreen',
+  EmployeeReservationDetailsScreen='ReservationDetailsScreen',
+  EmployeeTripsScreen='TripsScreen',
+  EmployeeTripDetailsScreen='TripDetailsScreen',
+  EmployeeTrackingScreen='trackingScreen',
+  EmployeeProfileScreen='ProfileScreen',
+}
+
+export enum DriverScreenNames {
+  DriverHomeScreen = 'HomeScreen',
+  DriverTripsScreen='TripsScreen',
+  DriverActiveTripScreen='ActiveTripScreen',
+  DriverTripDetailsScreen='DriverTripDetailsScreen',
+  DriverProfileScreen='ProfileScreen',
 }

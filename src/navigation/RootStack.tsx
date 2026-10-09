@@ -5,7 +5,7 @@ import {
   createStackScreen,
 } from '@react-navigation/stack';
 import HomeScreen from '../screens/employee/Home/HomeScreen';
-import { ScreenNames } from './ScreenNames';
+import { EmployeeScreenNames } from './ScreenNames';
 import ReservationDetailsScreen from '../screens/employee/reservations/ReservationDetailsScreen/ReservationDetailsScreen';
 import TripDetailsScreen from '../screens/employee/trips/TripDetailsScreen';
 import AuthStack from './Stacks/AuthStack';
@@ -33,13 +33,25 @@ export type AuthStackType = {
 };
 export type MainStackType = {
   BottomTabs: NavigatorScreenParams<BottomTabsType>;
-  ReservationDetailsScreen: undefined;
-  TripDetailsScreen: undefined;
+  // ReservationDetailsScreen: undefined;
+  // TripDetailsScreen: undefined;
+  DriverTripDetailsScreen: undefined;
+
+  
 };
 export type BottomTabsType = {
+// employee screens🙂
+
+  // HomeScreen: undefined;
+  // TripsScreen: undefined;
+  // ReservationsScreen: undefined;
+  // trackingScreen: undefined;
+  // ProfileScreen: undefined;
+
+// driver screens🙂
+
   HomeScreen: undefined;
   TripsScreen: undefined;
-  ReservationsScreen: undefined;
-  trackingScreen: undefined;
+  ActiveTripScreen: undefined;
   ProfileScreen: undefined;
 };
