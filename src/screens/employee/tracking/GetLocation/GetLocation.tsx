@@ -19,9 +19,16 @@ export interface LocationCoords {
 interface LocationScreenProps {
   onLocationFound?: (coords: LocationCoords) => void;
   onStopSharing?: () => void;
+  shareLabel?: string;
+  stopLabel?: string;
 }
 
-const LocationScreen = ({ onLocationFound, onStopSharing }: LocationScreenProps) => {
+const LocationScreen = ({
+  onLocationFound,
+  onStopSharing,
+  shareLabel = 'Share live location',
+  stopLabel = 'Stop sharing location',
+}: LocationScreenProps) => {
   const [loading, setLoading] = useState(false);
   const [isWatching, setIsWatching] = useState(false);
   const [locationText, setLocationText] = useState<string | null>(null);
@@ -226,7 +233,7 @@ const LocationScreen = ({ onLocationFound, onStopSharing }: LocationScreenProps)
           <ActivityIndicator color="#FFFFFF" />
         ) : (
           <Text style={styles.shareButtonText}>
-            {isWatching ? 'Stop sharing location' : 'Share live location'}
+            {isWatching ? stopLabel : shareLabel}
           </Text>
         )}
       </TouchableOpacity>
