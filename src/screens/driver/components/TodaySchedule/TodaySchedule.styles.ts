@@ -73,6 +73,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#BBF7D0',
     marginLeft: 8,
+    marginTop: 32,
   },
   nextBadgeText: {
     fontSize: 10,
