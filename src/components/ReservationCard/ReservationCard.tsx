@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { styles } from './ReservationCard.styles';
 import { useNavigation } from '@react-navigation/native';
-import { ScreenNames } from '../../navigation/ScreenNames';
+import { EmployeeScreenNames } from '../../navigation/ScreenNames';
 
 export default function ReservationCard() {
   const navigation = useNavigation() as any;
@@ -53,7 +53,7 @@ export default function ReservationCard() {
       <TouchableOpacity
         style={styles.cardButton}
         activeOpacity={0.8}
-        onPress={() => navigation.navigate(ScreenNames.ReservationDetailsScreen)}
+        onPress={() => navigation.navigate(EmployeeScreenNames.EmployeeReservationDetailsScreen)}
       >
         <Text style={styles.cardButtonText}>View Reservation</Text>
       </TouchableOpacity>
