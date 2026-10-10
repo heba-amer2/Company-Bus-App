@@ -3,34 +3,62 @@ import {
   View,
   Text,
   ScrollView,
-  TouchableOpacity,
   StatusBar,
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { styles } from './TripsScreen.styles';
+import ScreenHeader from '../../../components/layout/ScreenHeader';
+import TripCard from './TripCard';
+
+const TRIPS = [
+  {
+    time: '07:30 AM',
+    from: 'October',
+    to: 'Smart Village',
+    bus: 'BUS-12',
+    duration: '45 mins',
+    seatsLeft: '12 seats left',
+    badgeLabel: 'SCHEDULED',
+  },
+  {
+    time: '08:15 AM',
+    from: 'Maadi',
+    to: 'Smart Village',
+    bus: 'BUS-08',
+    duration: '50 mins',
+    seatsLeft: '5 seats left',
+    badgeLabel: 'SCHEDULED',
+  },
+  {
+    time: '05:00 PM',
+    from: 'Smart Village',
+    to: 'October',
+    bus: 'BUS-12',
+    duration: '45 mins',
+    seatsLeft: '18 seats left',
+    badgeLabel: 'EVENING',
+    evening: true,
+  },
+];
 
 export default function TripsScreen() {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      <View style={styles.header}>
-        <View style={styles.headerTop}>
-          <View>
-            <Text style={styles.headerEyebrow}>Plan your commute</Text>
-            <Text style={styles.headerTitle}>Available trips</Text>
-          </View>
-          <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7}>
-            <Feather name="sliders" size={18} color="#FFFFFF" />
-          </TouchableOpacity>
-        </View>
-
+      <ScreenHeader
+        eyebrow="Plan your commute"
+        title="Available trips"
+        icon={<Feather name="sliders" size={18} color="#FFFFFF" />}
+        style={styles.header}
+        headerStyles={styles}
+      >
         <View style={styles.searchBox}>
           <Feather name="search" size={16} color="#94A3B8" />
           <Text style={styles.searchPlaceholder}>Search station or route</Text>
         </View>
-      </View>
+      </ScreenHeader>
 
       <ScrollView
         contentContainerStyle={styles.scrollContent}
@@ -78,135 +106,9 @@ export default function TripsScreen() {
 
         <Text style={styles.sectionLabel}>3 trips available</Text>
 
-        <View style={styles.card}>
-          <View style={styles.topRow}>
-            <View style={styles.timeRow}>
-              <Feather name="clock" size={14} color="#334155" />
-              <Text style={styles.timeText}>07:30 AM</Text>
-            </View>
-            <View style={styles.statusBadge}>
-              <Text style={styles.statusBadgeText}>SCHEDULED</Text>
-            </View>
-          </View>
-
-          <View style={styles.routeRow}>
-            <View style={styles.stationItem}>
-              <View style={styles.ringBlue} />
-              <Text style={styles.stationName}>October</Text>
-            </View>
-            <View style={styles.dashedLine} />
-            <View style={styles.stationItem}>
-              <View style={styles.ringGreen} />
-              <Text style={styles.stationName}>Smart Village</Text>
-            </View>
-          </View>
-
-          <View style={styles.metaRow}>
-            <View style={styles.busInfo}>
-              <MaterialCommunityIcons name="bus" size={14} color="#64748B" />
-              <Text style={styles.busText}>BUS-12</Text>
-            </View>
-            <Text style={styles.durationText}>45 mins</Text>
-            <Text style={styles.seatsLeftText}>12 seats left</Text>
-          </View>
-
-          <View style={styles.actionsRow}>
-            <TouchableOpacity style={styles.detailsButton} activeOpacity={0.8}>
-              <Text style={styles.detailsButtonText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.reserveButton} activeOpacity={0.8}>
-              <Text style={styles.reserveButtonText}>Reserve</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={styles.card}>
-          <View style={styles.topRow}>
-            <View style={styles.timeRow}>
-              <Feather name="clock" size={14} color="#334155" />
-              <Text style={styles.timeText}>08:15 AM</Text>
-            </View>
-            <View style={styles.statusBadge}>
-              <Text style={styles.statusBadgeText}>SCHEDULED</Text>
-            </View>
-          </View>
-
-          <View style={styles.routeRow}>
-            <View style={styles.stationItem}>
-              <View style={styles.ringBlue} />
-              <Text style={styles.stationName}>Maadi</Text>
-            </View>
-            <View style={styles.dashedLine} />
-            <View style={styles.stationItem}>
-              <View style={styles.ringGreen} />
-              <Text style={styles.stationName}>Smart Village</Text>
-            </View>
-          </View>
-
-          <View style={styles.metaRow}>
-            <View style={styles.busInfo}>
-              <MaterialCommunityIcons name="bus" size={14} color="#64748B" />
-              <Text style={styles.busText}>BUS-08</Text>
-            </View>
-            <Text style={styles.durationText}>50 mins</Text>
-            <Text style={styles.seatsLeftText}>5 seats left</Text>
-          </View>
-
-          <View style={styles.actionsRow}>
-            <TouchableOpacity style={styles.detailsButton} activeOpacity={0.8}>
-              <Text style={styles.detailsButtonText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.reserveButton} activeOpacity={0.8}>
-              <Text style={styles.reserveButtonText}>Reserve</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={styles.card}>
-          <View style={styles.topRow}>
-            <View style={styles.timeRow}>
-              <Feather name="clock" size={14} color="#334155" />
-              <Text style={styles.timeText}>05:00 PM</Text>
-            </View>
-            <View style={[styles.statusBadge, styles.statusBadgeEvening]}>
-              <Text
-                style={[styles.statusBadgeText, styles.statusBadgeTextEvening]}
-              >
-                EVENING
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.routeRow}>
-            <View style={styles.stationItem}>
-              <View style={styles.ringBlue} />
-              <Text style={styles.stationName}>Smart Village</Text>
-            </View>
-            <View style={styles.dashedLine} />
-            <View style={styles.stationItem}>
-              <View style={styles.ringGreen} />
-              <Text style={styles.stationName}>October</Text>
-            </View>
-          </View>
-
-          <View style={styles.metaRow}>
-            <View style={styles.busInfo}>
-              <MaterialCommunityIcons name="bus" size={14} color="#64748B" />
-              <Text style={styles.busText}>BUS-12</Text>
-            </View>
-            <Text style={styles.durationText}>45 mins</Text>
-            <Text style={styles.seatsLeftText}>18 seats left</Text>
-          </View>
-
-          <View style={styles.actionsRow}>
-            <TouchableOpacity style={styles.detailsButton} activeOpacity={0.8}>
-              <Text style={styles.detailsButtonText}>View details</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.reserveButton} activeOpacity={0.8}>
-              <Text style={styles.reserveButtonText}>Reserve</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        {TRIPS.map(trip => (
+          <TripCard key={`${trip.time}-${trip.from}`} {...trip} />
+        ))}
       </ScrollView>
     </View>
   );
