@@ -1,0 +1,23 @@
+export const colors = {
+  background: '#F8FAFC',
+  navy: '#071E3D',
+  primary: '#2563EB',
+  primarySoft: '#EFF6FF',
+  white: '#FFFFFF',
+  text: '#0F172A',
+  textSubtle: '#94A3B8',
+  textMuted: '#64748B',
+  border: '#F1F5F9',
+  card: '#FFFFFF',
+  teal: '#0D9488',
+  tealSoft: '#F0FDFA',
+  amber: '#D97706',
+  amberSoft: '#FEF3C7',
+  purple: '#7C3AED',
+  purpleSoft: '#F5F3FF',
+  danger: '#EF4444',
+  dangerSoft: '#FEF2F2',
+  success: '#10B981',
+  successSoft: '#ECFDF5',
+};
+

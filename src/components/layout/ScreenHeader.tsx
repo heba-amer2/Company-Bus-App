@@ -18,7 +18,9 @@ type ScreenHeaderStyles = {
 type ScreenHeaderProps = {
   eyebrow: string;
   title: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  onActionPress?: () => void;
+  actionLabel?: string;
   children?: React.ReactNode;
   style: StyleProp<ViewStyle>;
   headerStyles: ScreenHeaderStyles;
@@ -28,6 +30,8 @@ export default function ScreenHeader({
   eyebrow,
   title,
   icon,
+  onActionPress,
+  actionLabel,
   children,
   style,
   headerStyles,
@@ -39,9 +43,20 @@ export default function ScreenHeader({
           <Text style={headerStyles.headerEyebrow}>{eyebrow}</Text>
           <Text style={headerStyles.headerTitle}>{title}</Text>
         </View>
-        <TouchableOpacity style={headerStyles.headerIconButton} activeOpacity={0.7}>
-          {icon}
-        </TouchableOpacity>
+        {icon ? (
+          <TouchableOpacity
+            style={headerStyles.headerIconButton}
+            activeOpacity={onActionPress ? 0.7 : 1}
+            onPress={onActionPress}
+            disabled={!onActionPress}
+            accessibilityRole="button"
+            accessibilityLabel={actionLabel ?? 'Header action'}
+          >
+            {icon}
+          </TouchableOpacity>
+        ) : (
+          <View style={{ width: 42 }} />
+        )}
       </View>
       {children}
     </View>
