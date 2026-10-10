@@ -34,6 +34,8 @@ type ProfileHeaderProps = {
   role: string;
   badgeIcon: React.ReactNode;
   badgeText: string;
+  showSettings?: boolean;
+  showCameraBadge?: boolean;
 };
 
 export default function ProfileHeader({
@@ -44,14 +46,20 @@ export default function ProfileHeader({
   role,
   badgeIcon,
   badgeText,
+  showSettings = true,
+  showCameraBadge = true,
 }: ProfileHeaderProps) {
   return (
     <View style={headerStyle ?? headerStyles.header}>
       <View style={headerStyles.headerTop}>
         <Text style={headerStyles.headerTitle}>Profile</Text>
-        <TouchableOpacity style={headerStyles.headerIconButton} activeOpacity={0.7}>
-          <Feather name="settings" size={20} color="#FFFFFF" />
-        </TouchableOpacity>
+        {showSettings ? (
+          <TouchableOpacity style={headerStyles.headerIconButton} activeOpacity={0.7}>
+            <Feather name="settings" size={20} color="#FFFFFF" />
+          </TouchableOpacity>
+        ) : (
+          <View style={{ width: 42 }} />
+        )}
       </View>
 
       <View style={headerStyles.profileHero}>
@@ -59,9 +67,11 @@ export default function ProfileHeader({
           <View style={headerStyles.avatar}>
             <Text style={headerStyles.avatarInitials}>{initials}</Text>
           </View>
-          <View style={headerStyles.cameraBadge}>
-            <Feather name="camera" size={12} color="#FFFFFF" />
-          </View>
+          {showCameraBadge ? (
+            <View style={headerStyles.cameraBadge}>
+              <Feather name="camera" size={12} color="#FFFFFF" />
+            </View>
+          ) : null}
         </View>
 
         <View style={headerStyles.heroDetails}>
