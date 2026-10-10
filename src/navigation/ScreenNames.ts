@@ -16,3 +16,12 @@ export enum DriverScreenNames {
   DriverTripDetailsScreen='DriverTripDetailsScreen',
   DriverProfileScreen='ProfileScreen',
 }
+
+export enum AdminScreenNames {
+  AdminDashboardScreen = 'DashboardScreen',
+  AdminTripsScreen = 'TripsScreen',
+  AdminManagementScreen = 'ManagementScreen',
+  AdminUsersScreen = 'UsersScreen',
+  AdminProfileScreen = 'ProfileScreen',
+  AdminTripDetailsScreen = 'AdminTripDetails',
+}
