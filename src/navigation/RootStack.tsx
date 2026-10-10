@@ -33,25 +33,24 @@ export type AuthStackType = {
 };
 export type MainStackType = {
   BottomTabs: NavigatorScreenParams<BottomTabsType>;
-  // ReservationDetailsScreen: undefined;
-  // TripDetailsScreen: undefined;
+  ReservationDetailsScreen: undefined;
+  EmployeeTripDetailsScreen: undefined;
   DriverTripDetailsScreen: undefined;
-
-  
+  AdminTripDetails: { tripId?: string | number } | undefined;
 };
 export type BottomTabsType = {
-// employee screens🙂
-
-  // HomeScreen: undefined;
-  // TripsScreen: undefined;
-  // ReservationsScreen: undefined;
-  // trackingScreen: undefined;
-  // ProfileScreen: undefined;
-
-// driver screens🙂
-
+  // employee screens
   HomeScreen: undefined;
-  TripsScreen: undefined;
+  ReservationsScreen: undefined;
+  trackingScreen: undefined;
+
+  // driver screens
   ActiveTripScreen: undefined;
+
+  // admin screens
+  DashboardScreen: undefined;
+  TripsScreen: undefined;
+  ManagementScreen: undefined;
+  UsersScreen: undefined;
   ProfileScreen: undefined;
 };
