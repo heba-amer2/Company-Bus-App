@@ -3,7 +3,6 @@ import {
   View,
   Text,
   ScrollView,
-  TouchableOpacity,
   StatusBar,
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
@@ -13,6 +12,10 @@ import { styles } from './ProfileScreen.styles';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackType } from '../../../navigation/RootStack';
 import { StackNavigationProp } from '@react-navigation/stack';
+import ProfileHeader from '../../../components/profile/ProfileHeader';
+import ProfileInfoRow from '../../../components/profile/ProfileInfoRow';
+import ProfileMenuItem from '../../../components/profile/ProfileMenuItem';
+import ProfileLogoutButton from '../../../components/profile/ProfileLogoutButton';
 
 type NavProps =  StackNavigationProp<RootStackType>;
 export default function ProfileScreen() {
@@ -21,34 +24,14 @@ export default function ProfileScreen() {
     <View style={styles.container}>
       <StatusBar barStyle="light-content" />
 
-      <View style={styles.header}>
-        <View style={styles.headerTop}>
-          <Text style={styles.headerTitle}>Profile</Text>
-          <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7}>
-            <Feather name="settings" size={20} color="#FFFFFF" />
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.profileHero}>
-          <View style={styles.avatarContainer}>
-            <View style={styles.avatar}>
-              <Text style={styles.avatarInitials}>T</Text>
-            </View>
-            <View style={styles.cameraBadge}>
-              <Feather name="camera" size={12} color="#FFFFFF" />
-            </View>
-          </View>
-
-          <View style={styles.heroDetails}>
-            <Text style={styles.heroName}>Toka</Text>
-            <Text style={styles.heroRole}>Product Designer</Text>
-            <View style={styles.employeeBadge}>
-              <Feather name="award" size={12} color="#93C5FD" />
-              <Text style={styles.employeeBadgeText}>EMP-48291</Text>
-            </View>
-          </View>
-        </View>
-      </View>
+      <ProfileHeader
+        headerStyles={styles}
+        initials="T"
+        name="Toka"
+        role="Product Designer"
+        badgeIcon={<Feather name="award" size={12} color="#93C5FD" />}
+        badgeText="EMP-48291"
+      />
 
       <ScrollView
         contentContainerStyle={styles.scrollContent}
@@ -58,125 +41,83 @@ export default function ProfileScreen() {
 
         <Text style={styles.sectionTitle}>Employee Information</Text>
         <View style={styles.cardGroup}>
-          <View style={styles.infoRow}>
-            <View style={styles.infoLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#F1F5F9' }]}>
-                <Feather name="mail" size={16} color="#475569" />
-              </View>
-              <View>
-                <Text style={styles.infoLabel}>Email</Text>
-                <Text style={styles.infoValue}>john.smith@company.com</Text>
-              </View>
-            </View>
-          </View>
+          <ProfileInfoRow
+            rowStyles={styles}
+            icon={<Feather name="mail" size={16} color="#475569" />}
+            label="Email"
+            value="john.smith@company.com"
+          />
 
-          <View style={styles.infoRow}>
-            <View style={styles.infoLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#F1F5F9' }]}>
-                <Feather name="phone" size={16} color="#475569" />
-              </View>
-              <View>
-                <Text style={styles.infoLabel}>Phone Number</Text>
-                <Text style={styles.infoValue}>+1 (555) 234-5678</Text>
-              </View>
-            </View>
-          </View>
+          <ProfileInfoRow
+            rowStyles={styles}
+            icon={<Feather name="phone" size={16} color="#475569" />}
+            label="Phone Number"
+            value="+1 (555) 234-5678"
+          />
 
-          <View style={[styles.infoRow, { borderBottomWidth: 0 }]}>
-            <View style={styles.infoLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#F1F5F9' }]}>
-                <Ionicons name="location-outline" size={17} color="#475569" />
-              </View>
-              <View>
-                <Text style={styles.infoLabel}>Default Pickup Station</Text>
-                <Text style={styles.infoValue}>Central Station - Gate 2</Text>
-              </View>
-            </View>
-          </View>
+          <ProfileInfoRow
+            rowStyles={styles}
+            icon={<Ionicons name="location-outline" size={17} color="#475569" />}
+            label="Default Pickup Station"
+            value="Central Station - Gate 2"
+            last
+          />
         </View>
 
         <Text style={styles.sectionTitle}>Transportation Preferences</Text>
         <View style={styles.cardGroup}>
-          <TouchableOpacity style={styles.menuItem} activeOpacity={0.7}>
-            <View style={styles.menuItemLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#EFF6FF' }]}>
-                <Feather name="bell" size={16} color="#2563EB" />
-              </View>
-              <View>
-                <Text style={styles.menuItemTitle}>Trip Notifications</Text>
-                <Text style={styles.menuItemSubtitle}>Arrival alerts, schedule changes</Text>
-              </View>
-            </View>
-            <View style={styles.menuItemRight}>
-              <Text style={styles.badgeTextGreen}>Active</Text>
-              <Feather name="chevron-right" size={18} color="#94A3B8" />
-            </View>
-          </TouchableOpacity>
+          <ProfileMenuItem
+            itemStyles={styles}
+            icon={<Feather name="bell" size={16} color="#2563EB" />}
+            iconBackgroundColor="#EFF6FF"
+            title="Trip Notifications"
+            subtitle="Arrival alerts, schedule changes"
+            showActiveBadge
+          />
 
-          <TouchableOpacity style={styles.menuItem} activeOpacity={0.7}>
-            <View style={styles.menuItemLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#FDF4FF' }]}>
-                <MaterialCommunityIcons name="seat-passenger" size={18} color="#C026D3" />
-              </View>
-              <View>
-                <Text style={styles.menuItemTitle}>Seat Preference</Text>
-                <Text style={styles.menuItemSubtitle}>Window seat · Forward facing</Text>
-              </View>
-            </View>
-            <Feather name="chevron-right" size={18} color="#94A3B8" />
-          </TouchableOpacity>
+          <ProfileMenuItem
+            itemStyles={styles}
+            icon={<MaterialCommunityIcons name="seat-passenger" size={18} color="#C026D3" />}
+            iconBackgroundColor="#FDF4FF"
+            title="Seat Preference"
+            subtitle="Window seat · Forward facing"
+          />
 
-          <TouchableOpacity style={[styles.menuItem, styles.menuItemLast]} activeOpacity={0.7}>
-            <View style={styles.menuItemLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#FEF3C7' }]}>
-                <MaterialCommunityIcons name="history" size={18} color="#D97706" />
-              </View>
-              <View>
-                <Text style={styles.menuItemTitle}>Trip History</Text>
-                <Text style={styles.menuItemSubtitle}>Past rides & attendance reports</Text>
-              </View>
-            </View>
-            <Feather name="chevron-right" size={18} color="#94A3B8" />
-          </TouchableOpacity>
+          <ProfileMenuItem
+            itemStyles={styles}
+            icon={<MaterialCommunityIcons name="history" size={18} color="#D97706" />}
+            iconBackgroundColor="#FEF3C7"
+            title="Trip History"
+            subtitle="Past rides & attendance reports"
+            last
+          />
         </View>
 
         <Text style={styles.sectionTitle}>Support & App</Text>
         <View style={styles.cardGroup}>
-          <TouchableOpacity style={styles.menuItem} activeOpacity={0.7}>
-            <View style={styles.menuItemLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#F1F5F9' }]}>
-                <Feather name="help-circle" size={16} color="#475569" />
-              </View>
-              <View>
-                <Text style={styles.menuItemTitle}>Help & Support</Text>
-                <Text style={styles.menuItemSubtitle}>Contact transport coordinator</Text>
-              </View>
-            </View>
-            <Feather name="chevron-right" size={18} color="#94A3B8" />
-          </TouchableOpacity>
+          <ProfileMenuItem
+            itemStyles={styles}
+            icon={<Feather name="help-circle" size={16} color="#475569" />}
+            iconBackgroundColor="#F1F5F9"
+            title="Help & Support"
+            subtitle="Contact transport coordinator"
+          />
 
-          <TouchableOpacity style={[styles.menuItem, styles.menuItemLast]} activeOpacity={0.7}>
-            <View style={styles.menuItemLeft}>
-              <View style={[styles.infoIconContainer, { backgroundColor: '#F1F5F9' }]}>
-                <Feather name="shield" size={16} color="#475569" />
-              </View>
-              <View>
-                <Text style={styles.menuItemTitle}>Terms & Privacy</Text>
-                <Text style={styles.menuItemSubtitle}>Company transportation policy</Text>
-              </View>
-            </View>
-            <Feather name="chevron-right" size={18} color="#94A3B8" />
-          </TouchableOpacity>
+          <ProfileMenuItem
+            itemStyles={styles}
+            icon={<Feather name="shield" size={16} color="#475569" />}
+            iconBackgroundColor="#F1F5F9"
+            title="Terms & Privacy"
+            subtitle="Company transportation policy"
+            last
+          />
         </View>
 
-        <TouchableOpacity style={styles.logoutButton} activeOpacity={0.8}
-        onPress={() => navigation.navigate('AuthStack', { screen: 'LoginScreen' })}
-          >
-          <Feather name="log-out" size={18} color="#EF4444" />
-          <Text
-          
-          style={styles.logoutText}>Log Out</Text>
-        </TouchableOpacity>
+        <ProfileLogoutButton
+          buttonStyle={styles.logoutButton}
+          textStyle={styles.logoutText}
+          onPress={() => navigation.navigate('AuthStack', { screen: 'LoginScreen' })}
+        />
 
         
       </ScrollView>
