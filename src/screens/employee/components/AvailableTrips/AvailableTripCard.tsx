@@ -2,7 +2,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 import { styles } from './AvailableTrips.styles';
+import { EmployeeScreenNames } from '../../../../navigation/ScreenNames';
+import { StackNavigationProp } from '@react-navigation/stack';
+
 
 type AvailableTripCardProps = {
   time: string;
@@ -19,6 +23,8 @@ export default function AvailableTripCard({
   bus,
   seatsLeft,
 }: AvailableTripCardProps) {
+  const navigation = useNavigation() as any;
+
   return (
     <View style={styles.card}>
       <View style={styles.topRow}>
@@ -51,7 +57,11 @@ export default function AvailableTripCard({
         <Text style={styles.seatsLeftText}>{seatsLeft}</Text>
       </View>
 
-      <TouchableOpacity style={styles.detailsButton} activeOpacity={0.8}>
+      <TouchableOpacity
+        style={styles.detailsButton}
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate(EmployeeScreenNames.EmployeeTripDetailsScreen)}
+      >
         <Text style={styles.detailsButtonText}>View details</Text>
       </TouchableOpacity>
     </View>
