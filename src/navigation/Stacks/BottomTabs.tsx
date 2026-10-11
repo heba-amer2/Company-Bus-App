@@ -10,7 +10,16 @@ import DashboardScreen from '../../screens/admin/DashboardScreen/DashboardScreen
 import FleetScreen from '../../screens/admin/TripsScreen/TripsScreen';
 import ManagementScreen from '../../screens/admin/ManagementScreen/ManagementScreen';
 import UsersScreen from '../../screens/admin/UsersScreen/UsersScreen';
-import ProfileScreen from '../../screens/admin/ProfileScreen/ProfileScreen';
+// import ProfileScreen from '../../screens/admin/ProfileScreen/ProfileScreen';
+import { DriverScreenNames } from '../ScreenNames';
+import HomeScreen from '../../screens/employee/Home/HomeScreen';
+import TripsScreen from '../../screens/employee/trips/TripsScreen';
+import { ActiveTripScreen } from '../../screens/driver/ActiveTripScreen/ActiveTripScreen';
+import ProfileScreen from '../../screens/employee/Profile/ProfileScreen';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { EmployeeScreenNames } from '../ScreenNames';
+import ReservationsScreen from '../../screens/employee/reservations/ReservationsScreen/ReservationsScreen';
+import TrackingScreen from '../../screens/employee/tracking/TrackingScreen';
 
 const MyTabs = createBottomTabNavigator<BottomTabsType>();
 
@@ -32,7 +41,7 @@ export default function BottomTabs() {
 
         {/* employee screens🙂 */}
 
-        {/* <MyTabs.Screen  name={EmployeeScreenNames.EmployeeHomeScreen} component={HomeScreen}
+        <MyTabs.Screen  name={EmployeeScreenNames.EmployeeHomeScreen} component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color, focused }) => (
@@ -71,14 +80,14 @@ export default function BottomTabs() {
         <MyTabs.Screen name={EmployeeScreenNames.EmployeeProfileScreen} component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({ color, focused }) => (
             <Feather name="user" size={20} color={focused ? '#2563EB' : color} />
           ),
         }}
         
-        /> */}
+        />
 
-        {/*  driver screens🙂 */}
+         {/* driver screens🙂 */}
 
       {/* <MyTabs.Screen
         name={DriverScreenNames.DriverHomeScreen}
@@ -115,7 +124,7 @@ export default function BottomTabs() {
 
       <MyTabs.Screen
         name={DriverScreenNames.DriverProfileScreen}
-        component={DriverProfileScreen}
+        component={ProfileScreen}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
@@ -124,7 +133,9 @@ export default function BottomTabs() {
         }}
       /> */}
 
-      <MyTabs.Screen
+      {/* Admin screens  */}
+
+      {/* <MyTabs.Screen
         name={AdminScreenNames.AdminDashboardScreen}
         component={DashboardScreen}
         options={{
@@ -142,42 +153,43 @@ export default function BottomTabs() {
           tabBarLabel: 'Trips',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="bus" size={20} color={color} />
-          ),
-        }}
-      />
-
-      <MyTabs.Screen
-        name={AdminScreenNames.AdminManagementScreen}
-        component={ManagementScreen}
-        options={{
-          tabBarLabel: 'Manage',
-          tabBarIcon: ({ color }) => (
-            <Feather name="sliders" size={20} color={color} />
-          ),
-        }}
-      />
-
-      <MyTabs.Screen
-        name={AdminScreenNames.AdminUsersScreen}
-        component={UsersScreen}
-        options={{
-          tabBarLabel: 'Users',
-          tabBarIcon: ({ color }) => (
-            <Feather name="users" size={20} color={color} />
-          ),
-        }}
-      />
-
-      <MyTabs.Screen
-        name={AdminScreenNames.AdminProfileScreen}
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({ color }) => (
-            <Feather name="user" size={20} color={color} />
-          ),
-        }}
-      />
+            ),
+            }}
+            />
+            
+            
+            
+            <MyTabs.Screen
+            name={AdminScreenNames.AdminUsersScreen}
+            component={UsersScreen}
+            options={{
+              tabBarLabel: 'Users',
+              tabBarIcon: ({ color }) => (
+                <Feather name="users" size={20} color={color} />
+                ),
+                }}
+                />
+                
+                <MyTabs.Screen
+                name={AdminScreenNames.AdminProfileScreen}
+                component={ProfileScreen}
+                options={{
+                  tabBarLabel: 'Profile',
+                  tabBarIcon: ({ color }) => (
+                    <Feather name="user" size={20} color={color} />
+                    ),
+                    }}
+                    />
+              <MyTabs.Screen
+                name={AdminScreenNames.AdminManagementScreen}
+                component={ManagementScreen}
+                options={{
+                  tabBarLabel: 'Manage',
+                  tabBarIcon: ({ color }) => (
+                    <Feather name="sliders" size={20} color={color} />
+                  ),
+                }}
+              /> */}
     </MyTabs.Navigator>
   );
 }

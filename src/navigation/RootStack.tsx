@@ -13,6 +13,8 @@ import BottomTabs from './Stacks/BottomTabs';
 import { StackNames } from './StackNames';
 import MainStack from './Stacks/MainStack';
 import { NavigatorScreenParams } from '@react-navigation/native';
+import TripsScreen from '../screens/driver/TripsScreen/TripsScreen';
+import ProfileScreen from '../screens/driver/ProfileScreen/ProfileScreen';
 
 const MyStack = createStackNavigator<RootStackType>();
 
@@ -41,16 +43,16 @@ export type MainStackType = {
 export type BottomTabsType = {
   // employee screens
   HomeScreen: undefined;
+  TripsScreen:undefined;
   ReservationsScreen: undefined;
   trackingScreen: undefined;
+  ProfileScreen:undefined;
 
   // driver screens
   ActiveTripScreen: undefined;
 
   // admin screens
   DashboardScreen: undefined;
-  TripsScreen: undefined;
   ManagementScreen: undefined;
   UsersScreen: undefined;
-  ProfileScreen: undefined;
 };

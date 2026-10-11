@@ -102,7 +102,7 @@ export default function LoginScreen() {
               navigation.navigate('MainStack', {
                 screen: 'BottomTabs',
                 params: {
-                  screen: 'DashboardScreen',
+                  screen: 'HomeScreen',
                 },
               })
             }

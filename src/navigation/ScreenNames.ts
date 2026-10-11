@@ -4,7 +4,7 @@ export enum EmployeeScreenNames {
   EmployeeReservationsScreen = 'ReservationsScreen',
   EmployeeReservationDetailsScreen='ReservationDetailsScreen',
   EmployeeTripsScreen='TripsScreen',
-  EmployeeTripDetailsScreen='TripDetailsScreen',
+  EmployeeTripDetailsScreen='EmployeeTripDetailsScreen',
   EmployeeTrackingScreen='trackingScreen',
   EmployeeProfileScreen='ProfileScreen',
 }
@@ -13,7 +13,7 @@ export enum DriverScreenNames {
   DriverHomeScreen = 'HomeScreen',
   DriverTripsScreen='TripsScreen',
   DriverActiveTripScreen='ActiveTripScreen',
-  DriverTripDetailsScreen='DriverTripDetailsScreen',
+  DriverTripDetailsScreen='TripDetailsScreen',
   DriverProfileScreen='ProfileScreen',
 }
 

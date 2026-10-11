@@ -15,6 +15,7 @@ import AdminTripDetailsScreen from '../../screens/admin/TripsScreen/TripDetailsS
 import { MainStackType } from '../RootStack';
 import { DriverScreenNames } from '../ScreenNames';
 
+
 const MyStack = createStackNavigator<MainStackType>();
 
 export default function MainStack() {
@@ -26,14 +27,15 @@ export default function MainStack() {
       {/* employee screens  */}
 
 
-      {/* <MyStack.Screen
+      <MyStack.Screen
         name={EmployeeScreenNames.EmployeeReservationDetailsScreen}
         component={ReservationDetailsScreen}
       />
       <MyStack.Screen
         name={EmployeeScreenNames.EmployeeTripDetailsScreen}
         component={EmployeeTripDetailsScreen}
-      /> */}
+      />
+      
 
 
       {/* Driver screens   */}
