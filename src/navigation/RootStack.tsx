@@ -13,8 +13,9 @@ import BottomTabs from './Stacks/BottomTabs';
 import { StackNames } from './StackNames';
 import MainStack from './Stacks/MainStack';
 import { NavigatorScreenParams } from '@react-navigation/native';
-import TripsScreen from '../screens/driver/TripsScreen/TripsScreen';
-import ProfileScreen from '../screens/driver/ProfileScreen/ProfileScreen';
+
+
+
 
 const MyStack = createStackNavigator<RootStackType>();
 
@@ -35,24 +36,32 @@ export type AuthStackType = {
 };
 export type MainStackType = {
   BottomTabs: NavigatorScreenParams<BottomTabsType>;
-  ReservationDetailsScreen: undefined;
+  //Employee
+  EmployeeReservationDetailsScreen: undefined;
   EmployeeTripDetailsScreen: undefined;
+  //Driver
   DriverTripDetailsScreen: undefined;
-  AdminTripDetails: { tripId?: string | number } | undefined;
+  //Admin
+  AdminTripDetailsScreen: { tripId?: string | number } | undefined;
 };
 export type BottomTabsType = {
   // employee screens
-  HomeScreen: undefined;
-  TripsScreen:undefined;
-  ReservationsScreen: undefined;
-  trackingScreen: undefined;
-  ProfileScreen:undefined;
+  EmployeeHomeScreen: undefined;
+  EmployeeTripsScreen:undefined;
+  EmployeeReservationsScreen: undefined;
+  EmployeeTrackingScreen: undefined;
+  EmployeeProfileScreen:undefined;
 
   // driver screens
-  ActiveTripScreen: undefined;
+  DriverHomeSCreen:undefined;
+  DriverTripsScreen:undefined;
+  DriverActiveTripScreen: undefined;
+  DriverProfileScreen:undefined;
 
   // admin screens
-  DashboardScreen: undefined;
-  ManagementScreen: undefined;
-  UsersScreen: undefined;
+  AdminDashboardScreen: undefined;
+  AdminManagementScreen: undefined;
+  AdminUsersScreen: undefined;
+  AdminProfileScreen:undefined;
+  AdminTripsScreen:undefined;
 };

@@ -112,7 +112,7 @@ export default function ReservationDetailsScreen() {
             activeOpacity={0.85}
             onPress={() =>
               navigation.navigate('BottomTabs', {
-                screen: 'trackingScreen',
+                screen: 'EmployeeTrackingScreen',
               })
             }
           >

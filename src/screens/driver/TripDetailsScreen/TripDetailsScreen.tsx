@@ -132,7 +132,7 @@ export default function TripDetailsScreen() {
           onPress={() =>
             navigation.navigate('MainStack', {
               screen: 'BottomTabs',
-              params: { screen: 'ActiveTripScreen' },
+              params: { screen: 'DriverActiveTripScreen' },
             })
           }
         >

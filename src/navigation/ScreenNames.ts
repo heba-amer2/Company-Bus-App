@@ -1,27 +1,27 @@
 
 export enum EmployeeScreenNames {
-  EmployeeHomeScreen = 'HomeScreen',
-  EmployeeReservationsScreen = 'ReservationsScreen',
-  EmployeeReservationDetailsScreen='ReservationDetailsScreen',
-  EmployeeTripsScreen='TripsScreen',
+  EmployeeHomeScreen = 'EmployeeHomeScreen',
+  EmployeeReservationsScreen = 'EmployeeReservationsScreen',
+  EmployeeReservationDetailsScreen='EmployeeReservationDetailsScreen',
+  EmployeeTripsScreen='EmployeeTripsScreen',
   EmployeeTripDetailsScreen='EmployeeTripDetailsScreen',
-  EmployeeTrackingScreen='trackingScreen',
-  EmployeeProfileScreen='ProfileScreen',
+  EmployeeTrackingScreen='EmployeeTrackingScreen',
+  EmployeeProfileScreen='EmployeeProfileScreen',
 }
 
 export enum DriverScreenNames {
-  DriverHomeScreen = 'HomeScreen',
-  DriverTripsScreen='TripsScreen',
-  DriverActiveTripScreen='ActiveTripScreen',
-  DriverTripDetailsScreen='TripDetailsScreen',
-  DriverProfileScreen='ProfileScreen',
+  DriverHomeScreen = 'DriverHomeScreen',
+  DriverTripsScreen='DriverTripsScreen',
+  DriverActiveTripScreen='DriverActiveTripScreen',
+  DriverTripDetailsScreen='DriverTripDetailsScreen',
+  DriverProfileScreen='DriverProfileScreen',
 }
 
 export enum AdminScreenNames {
-  AdminDashboardScreen = 'DashboardScreen',
-  AdminTripsScreen = 'TripsScreen',
-  AdminManagementScreen = 'ManagementScreen',
-  AdminUsersScreen = 'UsersScreen',
-  AdminProfileScreen = 'ProfileScreen',
-  AdminTripDetailsScreen = 'AdminTripDetails',
+  AdminDashboardScreen = 'AdminDashboardScreen',
+  AdminTripsScreen = 'AdminTripsScreen',
+  AdminManagementScreen = 'AdminManagementScreen',
+  AdminUsersScreen = 'AdminUsersScreen',
+  AdminProfileScreen = 'AdminProfileScreen',
+  AdminTripDetailsScreen = 'AdminTripDetailsScreen',
 }

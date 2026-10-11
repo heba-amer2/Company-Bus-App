@@ -2,8 +2,8 @@ import React from 'react';
 import { View, ScrollView } from 'react-native';
 import Header from '../../../components/Header/Header';
 import ReservationCard from '../../../components/ReservationCard/ReservationCard';
-import QuickActions from '../components/QuickActions/QuickActions';
-import AvailableTrips from '../components/AvailableTrips/AvailableTrips';
+import QuickActions from '../Home/QuickActions/QuickActions';
+import AvailableTrips from '../Home/AvailableTrips/AvailableTrips';
 import BottomNavBar from '../../../components/BottomNavBar/BottomNavBar';
 import { styles } from './HomeScreen.styles';
 
