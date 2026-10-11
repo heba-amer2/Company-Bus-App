@@ -1,8 +1,14 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import { useNavigation } from '@react-navigation/native';
 import { styles } from './ReservationsScreen.styles';
+import { EmployeeScreenNames } from '../../../../navigation/ScreenNames';
 
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackType } from '../../../../navigation/RootStack';
+
+type NavProps = StackNavigationProp<RootStackType>;
 type ReservationListCardProps = {
   bookingId: string;
   badgeLabel: string;
@@ -26,6 +32,8 @@ export default function ReservationListCard({
   bus,
   completed,
 }: ReservationListCardProps) {
+  const navigation = useNavigation<NavProps>();
+
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
@@ -74,10 +82,29 @@ export default function ReservationListCard({
         <Text style={styles.completedNote}>Trip completed successfully</Text>
       ) : (
         <View style={styles.actionsRow}>
-          <TouchableOpacity style={styles.detailsButton} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.detailsButton}
+            activeOpacity={0.8}
+            onPress={() =>
+              navigation.navigate('MainStack', {
+                screen: EmployeeScreenNames.EmployeeReservationDetailsScreen,
+              })
+            }
+          >
             <Text style={styles.detailsButtonText}>View details</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.trackButton} activeOpacity={0.8}>
+          <TouchableOpacity
+            style={styles.trackButton}
+            activeOpacity={0.8}
+            onPress={() =>
+              navigation.navigate('MainStack', {
+                screen: 'BottomTabs',
+                params: {
+                  screen: EmployeeScreenNames.EmployeeTrackingScreen,
+                },
+              } )
+            }
+          >
             <Text style={styles.trackButtonText}>Track bus</Text>
           </TouchableOpacity>
         </View>

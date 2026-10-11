@@ -10,6 +10,7 @@ import { styles } from './ReservationsScreen.styles';
 import ScreenHeader from '../../../../components/layout/ScreenHeader';
 import ReservationListCard from './ReservationListCard';
 
+
 const RESERVATIONS = [
   {
     bookingId: '#RES-89241',

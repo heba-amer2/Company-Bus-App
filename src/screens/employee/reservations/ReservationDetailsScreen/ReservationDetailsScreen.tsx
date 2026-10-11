@@ -11,11 +11,7 @@ export default function ReservationDetailsScreen() {
     <View style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('BottomTabs', {
-              screen: 'HomeScreen',
-            })
-          }
+          onPress={() => navigation.goBack()}
           style={styles.backButton}
           activeOpacity={0.7}
         >
@@ -111,11 +107,23 @@ export default function ReservationDetailsScreen() {
         </View>
 
         <View style={styles.actionsContainer}>
-          <TouchableOpacity style={styles.trackButton} activeOpacity={0.85}>
+          <TouchableOpacity
+            style={styles.trackButton}
+            activeOpacity={0.85}
+            onPress={() =>
+              navigation.navigate('BottomTabs', {
+                screen: 'trackingScreen',
+              })
+            }
+          >
             <Text style={styles.trackButtonText}>Track Bus Live</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.cancelButton} activeOpacity={0.85}>
+          <TouchableOpacity
+            style={styles.cancelButton}
+            activeOpacity={0.85}
+            onPress={() => navigation.goBack()}
+          >
             <Text style={styles.cancelButtonText}>Cancel Reservation</Text>
           </TouchableOpacity>
         </View>
