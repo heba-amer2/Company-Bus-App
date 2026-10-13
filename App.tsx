@@ -7,10 +7,14 @@ import HomeScreen from './src/screens/employee/Home/HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import RootStack from './src/navigation/RootStack';
+import { Provider } from 'react-redux';
+import { store } from './src/store/appStore';
+
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
+    <Provider store ={store}>
     <NavigationContainer>
       <GestureHandlerRootView>
       <SafeAreaView style={{ flex: 1 }}>
@@ -19,6 +23,8 @@ function App() {
       </SafeAreaView>
       </GestureHandlerRootView>
     </NavigationContainer>
+
+    </Provider>
   );
 }
 
