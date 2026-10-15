@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
+    "@react-native-async-storage/async-storage": "^3.1.1",
     "@react-native-masked-view/masked-view": "^0.3.2",
     "@react-native/gradle-plugin": "0.87.1",
     "@react-native/new-app-screen": "0.87.1",

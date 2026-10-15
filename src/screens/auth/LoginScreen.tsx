@@ -19,6 +19,11 @@ import { LoginSchemaType } from "./LoginSchema";
 import { useLoginMutation } from "../../services/api/auth.api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "./LoginSchema";
+import { useDispatch } from "react-redux";
+import {setCredentials}  from "../../store/Slices/AuthSlice";
+import { AppDispatch } from "../../store/appStore";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 type NavProps = StackNavigationProp<RootStackType>;
 export default function LoginScreen() {
   const navigation = useNavigation<NavProps>();
@@ -32,7 +37,7 @@ export default function LoginScreen() {
     formState: { errors },
   } = useForm<LoginSchemaType>({ resolver: zodResolver(loginSchema)})
 
-
+  const dispatch = useDispatch<AppDispatch>();
   const [handelLogin,{isLoading,error}]=useLoginMutation()
 
   const onSubmit= async(data:LoginSchemaType)=>{
@@ -41,6 +46,11 @@ export default function LoginScreen() {
     try {
       const response = await handelLogin(data).unwrap();
       console.log('Success:', response);
+      dispatch(setCredentials(response));
+     await AsyncStorage.setItem(
+        'AuthData',
+        JSON.stringify(response)
+      )
       navigation.navigate('MainStack', {
         screen: 'BottomTabs',
         params: {

@@ -3,6 +3,8 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { styles } from './Header.styles';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/appStore';
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -19,6 +21,7 @@ export default function Header({
   avatarInitial,
   onAvatarPress,
 }: HeaderProps) {
+  const user = useSelector((state: RootState) => state.auth.user);
   const initial = avatarInitial || (name ? name[0] : 'U');
 
   return (
@@ -27,7 +30,7 @@ export default function Header({
         <View>
           <Text style={styles.greetingSub}>{roleTitle}</Text>
           <View style={styles.greetingNameRow}>
-            <Text style={styles.greetingName}>{name}</Text>
+            <Text style={styles.greetingName}>{user?.name ?? name}</Text>
             <MaterialCommunityIcons name="hand-wave" size={18} color="#FBBF24" />
           </View>
         </View>

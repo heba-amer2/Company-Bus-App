@@ -2,7 +2,6 @@ import { View, Text } from 'react-native';
 import React from 'react';
 import {
   createStackNavigator,
-  createStackScreen,
 } from '@react-navigation/stack';
 import HomeScreen from '../screens/employee/Home/HomeScreen';
 import { EmployeeScreenNames } from './ScreenNames';
@@ -13,6 +12,8 @@ import BottomTabs from './Stacks/BottomTabs';
 import { StackNames } from './StackNames';
 import MainStack from './Stacks/MainStack';
 import { NavigatorScreenParams } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/appStore';
 
 
 
@@ -20,10 +21,22 @@ import { NavigatorScreenParams } from '@react-navigation/native';
 const MyStack = createStackNavigator<RootStackType>();
 
 export default function RootStack() {
+  const accessToken = useSelector(
+      (state: RootState) => state.auth.accessToken,
+    );
   return (
     <MyStack.Navigator screenOptions={{ headerShown: false }}>
-      <MyStack.Screen name={StackNames.AuthStack} component={AuthStack} />
-      <MyStack.Screen name={StackNames.MainStack} component={MainStack} />
+     {accessToken ? (
+        <MyStack.Screen
+          name={StackNames.MainStack}
+          component={MainStack}
+        />
+      ) : (
+        <MyStack.Screen
+          name={StackNames.AuthStack}
+          component={AuthStack}
+        />
+      )}
     </MyStack.Navigator>
   );
 }
